@@ -40,11 +40,6 @@
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                   <script id="devices-template" type="x-handlebars.template">
-                    {{#each devices}}
-                    <li class="bold">
-                        <a class="collapsible-header waves-effect blue lighten-1 white-text">{{this.name}}</a>
-                    </li>
-                    {{/each}}
                     </script>
                     <div class="devices"></div>
                 </ul>
@@ -95,33 +90,45 @@
                     </tr>
                 </thead>
                 <tbody class="songs">
-                  {{#each songs}}
                     <tr>
-                        <td>{{this.title}}</td>
-                        <td>{{this.artist}}</td>
-                        <td>{{this.album}}</td>
-                        <td>{{this.length}}</td>
+                        <td>Not Too Late</td>
+                        <td>Lemaitre</td>
+                        <td>1749</td>
+                        <td>3:00</td>
                     </tr>
-                  {{/each}}
+                    <tr>
+                        <td>Stepping Stone (feat. Mark Johns)</td>
+                        <td>Lemaitre</td>
+                        <td>1749</td>
+                        <td>3:00</td>
+                    </tr>
+                    <tr>
+                        <td>Closer (feat. Jennie A.)</td>
+                        <td>Lemaitre</td>
+                        <td>1749</td>
+                        <td>3:00</td>
+                    </tr>
+                    <tr>
+                        <td>Day Two</td>
+                        <td>Lemaitre</td>
+                        <td>1749</td>
+                        <td>3:00</td>
+                    </tr>
+                    <tr>
+                        <td>Nishio 2 (feat. Giraffage)</td>
+                        <td>Lemaitre</td>
+                        <td>1749</td>
+                        <td>3:00</td>
+                    </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="fixed-action-btn">
-          <div class="file-field">
-            <div id="add-fab" class="btn-floating btn-large red">
-              <span><i class="large material-icons">add</i></span>
-              <input id="song_file" type="file">
-            </div>
-          </div>
         </div>
     </main>
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/hammer.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <!-- <script type="text/javascript" src="js/socketcluster.js"></script> -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <script type="text/javascript" src="js/js.cookie.js"></script>
+    <script type="text/javascript" src="js/socketcluster.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/devices-template.js"></script>
     <script type="text/javascript" src="node_modules/howler/dist/howler.js"></script>
@@ -132,7 +139,6 @@
     </script>
     <script type="text/javascript" src="js/groups.js"></script>
     <script type="text/javascript" src="js/sockets.js"></script>
-    <script type="text/javascript" src="js/upload.js"></script>
     <!-- <script type="text/javascript" src="js/songs-template.js"></script> -->
 </body>
 </html>
