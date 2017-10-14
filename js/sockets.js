@@ -40,17 +40,20 @@ $('#test-play').click(function(event){
 });
 
 socket.subscribe('play').watch(function(time){
-  if(!sender){
-    console.log(5000 - time - timediff);
-    setTimeout(function(){
-      audio.play();
-    }, 5000 - time - timediff);
-  }else{
-    console.log(5000 - timediff - timediff);
-    setTimeout(function(){
-      audio.play();
-    }, 5000 - timediff - timediff);
-  }
+  setTimeout(function(){
+    audio.play();
+  }, 5000 - time - timediff);
+  // if(!sender){
+  //   console.log(5000 - time - timediff);
+  //   setTimeout(function(){
+  //     audio.play();
+  //   }, 5000 - time - timediff);
+  // }else{
+  //   console.log(5000 - timediff - timediff);
+  //   setTimeout(function(){
+  //     audio.play();
+  //   }, 5000 - timediff - timediff);
+  // }
       // var audio = new Audio('test.flac');
       // audio.play();
 });
