@@ -13,17 +13,14 @@
     "email": "shihern2708@gmail.com",
     "url": ""
   },
-  "scripts": {
-    "test": "xo",
-    "start": "electron .",
-    "build": "electron-packager . --out=dist --asar --overwrite --all"
-  },
   "dependencies": {
-    "electron-debug": "^1.0.0"
+    "electron": "^1.7.9",
+    "electron-debug": "^1.0.0",
+    "photonkit": "^0.1.2"
   },
   "devDependencies": {
     "devtron": "^1.1.0",
     "electron-packager": "^8.0.0",
     "electron": "^1.6.6"
-  },
+  }
 }
