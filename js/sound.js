@@ -309,7 +309,6 @@ socket.on('new_song', function(song){
   player.playlist.forEach(function(s){
     if(s.hash == song.hash){
       exists = true;
-      break;
     }
   });
   if(!exists){
