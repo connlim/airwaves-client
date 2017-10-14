@@ -28,11 +28,10 @@ $('#test-play').click(function(event){
 });
 
 socket.on('play', function(time){
-  console.log("fsdfsdf");
-  console.log(1000 - time - timediff);
+  console.log(1000 - time - timediff)
   setTimeout(function(){
     sound.play();
-}, 1000 - time - timediff);
+  }, 1000 - time - timediff);
   // audio.play();
 });
 
