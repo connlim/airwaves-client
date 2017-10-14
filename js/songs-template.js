@@ -8,9 +8,9 @@ $(document).ready( function () {
   // Define our data object
   var context={
     songs: [
-      {name: "I Really Like You", artist: "Carly Rae Jepsen", album:"EMOTION", length:"3:25"},
-      {name: "I Really Like You", artist: "Carly Rae Jepsen", album:"EMOTION", length:"3:25"},
-      {name: "I Really Like You", artist: "Carly Rae Jepsen", album:"EMOTION", length:"3:25"}
+      {title: "I Really Like You", artist: "Carly Rae Jepsen", album:"EMOTION", length:"3:25"},
+      {title: "I Really Like You", artist: "Carly Rae Jepsen", album:"EMOTION", length:"3:25"},
+      {title: "I Really Like You", artist: "Carly Rae Jepsen", album:"EMOTION", length:"3:25"}
     ]
   };
 

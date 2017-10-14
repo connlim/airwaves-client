@@ -21,7 +21,7 @@ Player.prototype = {
       sound = self.song.howl;
     } else {
       sound = self.song.howl = new Howl({
-        src: ['audio/' + self.song.file],
+        src: [self.song.path],
         html5: true, // Force to HTML5 so that the audio can stream in (best for large files).
         onplay: function() {
           // Display the duration.
@@ -184,7 +184,7 @@ Player.prototype = {
 // Setup our new audio player class and pass it the playlist.
 var player = new Player({
     title: 'Emotion',
-    file: 'emotion.flac',
+    path: 'audio/emotion.flac',
     howl: null
 });
 
