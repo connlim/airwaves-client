@@ -108,3 +108,7 @@ input[type=range][orient=vertical] {
 table.highlight>tbody>tr:hover {
     background-color: #CCCCCC;
 }
+
+.song-path {
+    display: none;
+}
