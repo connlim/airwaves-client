@@ -109,6 +109,6 @@ table.highlight>tbody>tr:hover {
     background-color: #CCCCCC;
 }
 
-.song-path {
+.song-path, .playlist-song-path, .song-hash, .playlist-song-hash {
     display: none;
 }

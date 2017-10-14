@@ -206,6 +206,7 @@ Player.prototype = {
           <td class="playlist-song-album">{{song.album}}</td>\
           <td class="playlist-song-length">{{song.length}}</td>\
           <td class="playlist-song-path">{{song.path}}</td>\
+          <td class="playlist-song-hash">{{song.hash}}</td>\
       </tr>';
         var compiled = Handlebars.compile(template);
         var data = {song: song};
@@ -247,12 +248,14 @@ $('.song').click(function(e) {
     var album = $(this).children('.song-album').text();
     var path = $(this).children('.song-path').text();
     var length = $(this).children('.song-length').text();
+    var hash = $(this).children('.song-hash').text();
     player.addSong({
         title: title,
         artist: artist,
         album: album,
         path: path,
         length: length,
+        hash: hash,
         howl: null
     });
 });

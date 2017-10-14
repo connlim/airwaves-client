@@ -4,6 +4,7 @@ var fs = require('fs');
 var mm = require('musicmetadata');
 var Promise = require('promise');
 var handlebars = require('handlebars');
+var hashFiles = require('hash-files');
 const path = require('path');
 
 const app = electron.app;
@@ -53,6 +54,7 @@ function getMusicData() {
 function readFileTags(filePath) {
     return new Promise(function (resolve, reject){
         var readStream = fs.createReadStream(filePath);
+        var hash = hashFiles.sync({files: [filePath], algorithm: 'sha256'});
         mm(readStream, { duration: true }, function (err, metadata) {
             if (err) resolve("meh");
             music.push({
@@ -60,7 +62,8 @@ function readFileTags(filePath) {
                 artist: metadata.artist[0],
                 album: metadata.album,
                 length: formatTime(metadata.duration),
-                path: filePath
+                path: filePath,
+                hash: hash
             });
             resolve("ok");
             readStream.close();
