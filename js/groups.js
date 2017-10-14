@@ -1,4 +1,4 @@
-var SYNC_URL = "http://192.168.99.100:10201";
+var SYNC_URL = "http://172.22.152.16:10201";
 
 $('#join-group').submit(function(event){
   event.preventDefault();
