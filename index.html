@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
 </head>
 <body>
+    <header>
     <!--Left side bar-->
     <ul id="nav-mobile" class="side-nav fixed blue lighten-1 white-text">
         <li class="logo"><a id="logo-container" href="#" class="brand-logo">
@@ -50,14 +51,28 @@
             </ul>
         </li>
     </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <ul class="right ">
-      <li><a href="#" class="waves-effect"><i class="material-icons">arrow_drop_up</i></a></li>
-      <li><i class="material-icons">play_arrow</i></li>
-      <li><i class="material-icons">arrow_drop_down</i></li>
+    <nav>
+        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
+        <div class="nav-wrapper white">
+            <ul id="nav-mobile" class="left">
+                <li><a href="#" class="blue-text"><i class="large material-icons">skip_previous</i></a></li>
+                <li><a href="#" class="blue-text"><i class="large material-icons">play_arrow</i></a></li>
+                <li><a href="#" class="blue-text"><i class="large material-icons">skip_next</i></a></li>
+                <li class="blue-text"><div class="navbar-time">0:00</div></li>
+                <li>
+                    <form action="#">
+                        <div class="range-field">
+                            <input type="range" id="test5" min="0" max="100" />
+                        </div>
+                    </form>
+                </li>
+                <li class="blue-text"><div class="navbar-time">3:00</div></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
-    </ul>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="node_modules/hammerjs/hammer.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>

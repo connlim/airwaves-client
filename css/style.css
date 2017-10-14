@@ -13,7 +13,6 @@ header, main, footer {
     height: 100%;
     pointer-events: none;
     width: 100%;
-    
 }
 
 #logo-container {
@@ -41,4 +40,27 @@ ul.side-nav.fixed ul.collapsible-accordion a.collapsible-header {
 ul.side-nav.fixed ul.collapsible-accordion .collapsible-body li a {
     font-weight: 400;
     padding: 0 37.5px 0 45px;
+}
+
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+}
+
+.navbar-time {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.thumb {
+    display: none;
+}
+
+.range-field {
+    width: 50vw;
 }
