@@ -5,7 +5,7 @@ var SOCKET_PORT = "10202";
 var timediff = 0;
 var sound = new Howl({
   src: ['audio/emotion.flac'],
-  html5: true // Force to HTML5 so that the audio can stream in (best for large files).
+  html5: false // Force to HTML5 so that the audio can stream in (best for large files).
 });
 
 var options = {
@@ -28,7 +28,7 @@ $('#test-play').click(function(event){
 });
 
 socket.on('play', function(time){
-  console.log("fsdfsdf");
+  // console.log("fsdfsdf");
   console.log(1000 - time - timediff);
   setTimeout(function(){
     sound.play();
