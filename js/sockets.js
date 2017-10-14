@@ -16,7 +16,7 @@ socket.on('connect', function(){
 });
 
 socket.on('timepong', function(starttime){
-  timediff = ((new Date()).getTime() - starttime) / 2;
+  timediff = Math.floor(((new Date()).getTime() - starttime) / 2);
   console.log(timediff);
 });
 
@@ -25,6 +25,7 @@ $('#test-play').click(function(event){
 });
 
 socket.on('play', function(time){
+  console.log('stuff');
   setTimeout(function(){
     audio.play();
   }, 500 - time - timediff);

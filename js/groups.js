@@ -20,7 +20,7 @@ $('#group-create').click(function(event){
   $.post(SYNC_URL + '/group/genid', function(data){
     Materialize.toast("Group created!", 2500);
     $('#group-id').html(data.groupid);
-    socket.emit('joingroup', groupid);
+    socket.emit('joingroup', data.groupid);
     Cookies.set('master', data.master);
   });
 });
