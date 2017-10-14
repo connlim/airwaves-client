@@ -7,13 +7,61 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
 </head>
 <body>
-    
+    <!--Left side bar-->
+    <ul id="nav-mobile" class="side-nav fixed blue lighten-1 white-text">
+        <li class="logo"><a id="logo-container" href="#" class="brand-logo">
+            <!-- <object id="front-page-logo" type="image/svg+xml" data="res/cloud_logo.svg" class="white-text">Your browser does not support SVG</object> -->
+            <i id="front-page-logo" class="large material-icons white-text">cloud_queue</i>
+        </a></li>
+        <li class="bold"><a href="#" class="waves-effect white-text">Settings</a></li>
+        <div class="divider"></div>
 
+        <!--Devices list-->
+        <li><h5 id="left-nav-header">Devices</h5></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold">
+                    <a class="collapsible-header waves-effect blue lighten-1 white-text">Device Name</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="badges.html" class="blue lighten-1 white-text">Device ID</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold">
+                    <a class="collapsible-header waves-effect blue lighten-1 white-text">Device Name</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="badges.html" class="blue lighten-1 white-text">Device ID</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold">
+                    <a class="collapsible-header waves-effect blue lighten-1 white-text">Device Name</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="badges.html" class="blue lighten-1 white-text">Device ID</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <ul class="right ">
+      <li><a href="#" class="waves-effect"><i class="material-icons">arrow_drop_up</i></a></li>
+      <li><i class="material-icons">play_arrow</i></li>
+      <li><i class="material-icons">arrow_drop_down</i></li>
+
+    </ul>
     <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="node_modules/hammerjs/hammer.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
 </body>
 </html>

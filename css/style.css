@@ -1,0 +1,44 @@
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+    padding-left: 0;
+    }
+}
+
+#front-page-logo {
+    display: inline-block;
+    height: 100%;
+    pointer-events: none;
+    width: 100%;
+    
+}
+
+#logo-container {
+    height: 57px;
+    margin-bottom: 32px;
+}
+
+#left-nav-header {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 5px;
+}
+
+ul.side-nav.fixed li.logo {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 30px;
+}
+
+ul.side-nav.fixed ul.collapsible-accordion a.collapsible-header {
+    padding: 0 32px;
+}
+
+ul.side-nav.fixed ul.collapsible-accordion .collapsible-body li a {
+    font-weight: 400;
+    padding: 0 37.5px 0 45px;
+}
