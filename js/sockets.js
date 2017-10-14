@@ -32,24 +32,4 @@ socket.on('play', function(time){
   setTimeout(function(){
     sound.play();
   }, 1000 - time - timediff);
-  // audio.play();
 });
-
-//Sort out autoplay issues on mobile
-// $(document).ready(function(){
-//   audio.play();
-//   if(audio.paused){
-//     var fix = function(){
-//       audio.load();
-//       window.removeEventListener('keydown', fix);
-//       window.removeEventListener('mousedown', fix);
-//       window.removeEventListener('touchstart', fix);
-//       //setTimeout()
-//     }
-//     window.addEventListener('keydown', fix);
-//     window.addEventListener('mousedown', fix);
-//     window.addEventListener('touchstart', fix);
-//   }else{
-//     audio.pause()
-//   }
-// });

@@ -38,7 +38,7 @@ Player.prototype = {
 
         },
         onend: function() {
-          
+          // socket.emit()
 
           self.skip('right');
         },
