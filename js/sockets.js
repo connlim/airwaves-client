@@ -24,6 +24,7 @@ $('#test-play').click(function(event){
 });
 
 socket.subscribe('play').watch(function(time){
+  console.log('triggered');
   // setTimeout(function(){
   //   audio.play();
   // }, 5000 - time - timediff);
