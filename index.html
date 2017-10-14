@@ -53,18 +53,21 @@
             <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
             <div class="nav-wrapper white">
                 <ul id="nav-mobile" class="left">
-                    <li><a href="#" class="blue-text"><i class="large material-icons">skip_previous</i></a></li>
-                    <li><a href="#" class="blue-text"><i class="large material-icons">play_arrow</i></a></li>
-                    <li><a href="#" class="blue-text"><i class="large material-icons">skip_next</i></a></li>
-                    <li class="blue-text"><div class="navbar-time">0:00</div></li>
+                    <li><a href="#" class="blue-text" id="prevBtn"><i class="large material-icons">skip_previous</i></a></li>
+                    <li>
+                        <a class="blue-text" id="playBtn"><i class="large material-icons">play_arrow</i></a>
+                        <a class="blue-text" id="pauseBtn"><i class="large material-icons">pause</i></a>
+                    </li>
+                    <li><a href="#" class="blue-text" id="nextBtn"><i class="large material-icons">skip_next</i></a></li>
+                    <li class="blue-text"><div class="navbar-time" id="timer">0:00</div></li>
                     <li>
                         <form action="#">
                             <div class="range-field">
-                                <input type="range" min="0" max="100" value="0" />
+                                <input id="seeker" type="range" min="0" max="9968" value="0" />
                             </div>
                         </form>
                     </li>
-                    <li class="blue-text"><div class="navbar-time">3:00</div></li>
+                    <li class="blue-text"><div class="navbar-time" id="duration">3:00</div></li>
                 </ul>
             </div>
         </nav>
@@ -115,7 +118,12 @@
     <script type="text/javascript" src="node_modules/hammerjs/hammer.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/layout.js"></script>
     <script type="text/javascript" src="js/devices-template.js"></script>
+    <script type="text/javascript" src="node_modules/howler/dist/howler.js"></script>
+    <script type="text/javascript" src="js/sound.js"></script>
+    <script type="text/javascript">
+        $(".button-collapse").sideNav();
+        $('#pauseBtn').hide()
+    </script>
 </body>
 </html>
