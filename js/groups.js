@@ -9,7 +9,7 @@ $('#join-group').submit(function(event){
       //TODO: Get current song
       Materialize.toast("Group joined!", 2500);
       $('#group-id').html(groupid);
-      
+      socket.emit('joingroup', groupid);
     }else{
       Materialize.toast("Group " + groupid + " does not exist!", 2500);
     }
@@ -20,6 +20,7 @@ $('#group-create').click(function(event){
   $.post(SYNC_URL + '/group/genid', function(data){
     Materialize.toast("Group created!", 2500);
     $('#group-id').html(data.groupid);
+    socket.emit('joingroup', groupid);
     Cookies.set('master', data.master);
   });
 });
