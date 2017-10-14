@@ -4,6 +4,7 @@ var fs = require('fs');
 var mm = require('musicmetadata');
 var Promise = require('promise');
 var handlebars = require('handlebars');
+var hashFiles = require('hash-files');
 const path = require('path');
 
 const app = electron.app;
@@ -23,6 +24,13 @@ function onClosed() {
     fs.unlinkSync('temp-index.html');
 }
 
+function formatTime(secs) {
+  var minutes = Math.floor(secs / 60) || 0;
+  var seconds = parseInt((secs - minutes * 60) || 0);
+
+  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+}
+
 
 function getMusicData() {
     const exts = ['.mp3'];
@@ -33,9 +41,7 @@ function getMusicData() {
             var filePath = path.join(pathToMusic, items[i]);
             if (exts.includes(path.extname(items[i]))) {
                 console.log(filePath);
-                // create a new parser from a node ReadStream
-                var readStream = fs.createReadStream(filePath);
-                promises.push(readFileTags(readStream));
+                promises.push(readFileTags(filePath));
             }
         }
         Promise.all(promises).then(values => {
@@ -45,15 +51,19 @@ function getMusicData() {
     });
 }
 
-function readFileTags(readStream) {
+function readFileTags(filePath) {
     return new Promise(function (resolve, reject){
-        mm(readStream, function (err, metadata) {
+        var readStream = fs.createReadStream(filePath);
+        var hash = hashFiles.sync({files: [filePath], algorithm: 'sha256'});
+        mm(readStream, { duration: true }, function (err, metadata) {
             if (err) resolve("meh");
             music.push({
                 title: metadata.title,
                 artist: metadata.artist[0],
                 album: metadata.album,
-                length: "3:00"
+                length: formatTime(metadata.duration),
+                path: filePath,
+                hash: hash
             });
             resolve("ok");
             readStream.close();

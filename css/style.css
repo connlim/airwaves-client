@@ -108,3 +108,7 @@ input[type=range][orient=vertical] {
 table.highlight>tbody>tr:hover {
     background-color: #CCCCCC;
 }
+
+.song-path, .playlist-song-path, .song-hash, .playlist-song-hash {
+    display: none;
+}
