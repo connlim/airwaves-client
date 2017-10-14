@@ -1,5 +1,6 @@
 'use strict';
 const electron = require('electron');
+var path = require('path');
 
 const app = electron.app;
 
@@ -19,7 +20,8 @@ function createMainWindow() {
     const win = new electron.BrowserWindow({
         width: 1200,
         height: 600,
-        'accept-first-mouse': true
+        'accept-first-mouse': true,
+        icon: path.join(__dirname, 'icons/icon64x64.png')
     });
 
     win.setMenu(null);

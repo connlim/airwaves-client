@@ -1,4 +1,3 @@
-// Cache references to DOM elements.
 var elms = ['playBtn', 'pauseBtn', 'nextBtn', 'prevBtn', 'timer', 'duration', 'seeker'];
 elms.forEach(function(elm) {
   window[elm] = $('#' + elm);
