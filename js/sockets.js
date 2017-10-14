@@ -17,6 +17,8 @@ socket.on('connect', function(){
 socket.on('timeping', function(data){
   timediff = (new Date()).getTime() - data;
   console.log(timediff);
+  timediff = data - (new Date()).getTime();
+  console.log(timediff);
 });
 
 $('#test-play').click(function(event){
