@@ -23,9 +23,9 @@ socket.on('timepong', function(starttime){
   console.log(timediff);
 });
 
-$('#test-play').click(function(event){
-  socket.emit('play', {group : $('#group-id').html(), time : timediff});
-});
+// $('#test-play').click(function(event){
+//   socket.emit('play', {group : $('#group-id').html(), time : timediff});
+// });
 
 socket.on('play', function(time){
   // console.log("fsdfsdf");
