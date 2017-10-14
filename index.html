@@ -51,16 +51,16 @@
             </li>
         </ul>
 
-        <nav>
+        <nav id="navbar">
             <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
             <div class="nav-wrapper white">
                 <ul id="nav-mobile" class="left">
-                    <li><a href="#" class="blue-text" id="prevBtn"><i class="large material-icons">skip_previous</i></a></li>
+                    <li><a class="blue-text" id="prevBtn"><i class="large material-icons">skip_previous</i></a></li>
                     <li>
                         <a class="blue-text" id="playBtn"><i class="large material-icons">play_arrow</i></a>
                         <a class="blue-text" id="pauseBtn"><i class="large material-icons">pause</i></a>
                     </li>
-                    <li><a href="#" class="blue-text" id="nextBtn"><i class="large material-icons">skip_next</i></a></li>
+                    <li><a class="blue-text" id="nextBtn"><i class="large material-icons">skip_next</i></a></li>
                     <li class="blue-text"><div class="navbar-time" id="timer">0:00</div></li>
                     <li>
                         <form action="#">
@@ -70,6 +70,13 @@
                         </form>
                     </li>
                     <li class="blue-text"><div class="navbar-time" id="duration">3:00</div></li>
+                </ul>
+            </div>
+            <div class="nav-wrapper white" id="navbar-current">
+                <ul class="left">
+                    <li><a class="bold black-text" id="currentSong">I love piggies and oinkies</a></li>
+                    <li><a class="bold black-text" id="currentArtist">Carly Rae Jepsen</a></li>
+                    <li><a class="bold black-text" id="currentAlbum">Emotion Side B</a></li>
                 </ul>
             </div>
         </nav>

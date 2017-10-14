@@ -63,6 +63,30 @@ input[type=range][orient=vertical] {
     padding-left: 15px;
 }
 
+#navbar {
+    height: 128px;
+}
+
+#navbar>.nav-wrapper {
+    height: 50%;
+}
+
+#navbar-current {
+    display: flex;
+    justify-content: center;
+}
+#navbar-current ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 85%;
+}
+#navbar-current li {
+    display: block;
+    flex: 0 1 auto; /* Default */
+    list-style-type: none;
+}
+
 .thumb {
     display: none;
 }
