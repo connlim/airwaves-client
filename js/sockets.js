@@ -5,6 +5,8 @@ var SOCKET_PORT = "10202";
 var timediff = 0;
 var sender = false;
 
+var audio = new Audio('test.flac');
+
 var options = {
   hostname: SOCKET_HOST,
   port: SOCKET_PORT
@@ -28,8 +30,6 @@ socket.on('timepong', function(starttime){
 });
 
 $('#test-play').click(function(event){
-  // var audio = new Audio('test.flac');
-  // audio.play();
   socket.publish('play', timediff);
   sender = true;
   // setTimeout(function(){
@@ -40,15 +40,14 @@ $('#test-play').click(function(event){
 });
 
 socket.subscribe('play').watch(function(time){
-  console.log(5000 - timediff - timediff);
   if(!sender){
+    console.log(5000 - time - timediff);
     setTimeout(function(){
-      var audio = new Audio('test.flac');
       audio.play();
     }, 5000 - time - timediff);
   }else{
+    console.log(5000 - timediff - timediff);
     setTimeout(function(){
-      var audio = new Audio('test.flac');
       audio.play();
     }, 5000 - timediff - timediff);
   }
