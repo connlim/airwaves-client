@@ -3,6 +3,7 @@
   "productName": "airwaves-client",
   "version": "0.0.0",
   "description": "",
+  "main": "index.js",
   "license": "GNU GPLv3",
   "repository": {
     "type": "git",
@@ -12,6 +13,9 @@
     "name": "Shi Hern",
     "email": "shihern2708@gmail.com",
     "url": ""
+  },
+  "scripts": {
+    "start": "electron ."
   },
   "dependencies": {
     "electron": "^1.7.9",
