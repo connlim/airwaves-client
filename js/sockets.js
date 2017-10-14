@@ -14,10 +14,16 @@ socket.on('connect', function(){
 
 });
 
-socket.on('timeping', function(data){
-  timediff = (new Date()).getTime() - data;
-  console.log(timediff);
-  timediff = data - (new Date()).getTime();
+// socket.on('timeping', function(data){
+//   timediff = (new Date()).getTime() - data;
+//   console.log(timediff);
+//   timediff = data - (new Date()).getTime();
+//   console.log(timediff);
+// });
+
+socket.emit('timeping', (new Date()).getTime());
+socket.on('timepong', function(starttime){
+  timediff = ((new Date()).getTime() - starttime);
   console.log(timediff);
 });
 
