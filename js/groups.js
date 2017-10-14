@@ -18,6 +18,7 @@ $('#join-group').submit(function(event){
 $('#group-create').click(function(event){
   $.post(SYNC_URL + '/group/genid', function(data){
     Materialize.toast("Group created!", 2500);
-    $('#group-id').html(data);
+    $('#group-id').html(data.groupid);
+    Cookies.set('master', data.master);
   });
 });

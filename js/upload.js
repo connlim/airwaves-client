@@ -14,4 +14,4 @@ $('#song_file').change(function(){
     console.log(res);
     Materialize.toast(res.responseText, 2500);
   });
-})
+});
