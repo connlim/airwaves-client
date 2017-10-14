@@ -25,10 +25,10 @@ $('#test-play').click(function(event){
 });
 
 socket.on('play', function(time){
-  console.log('stuff');
+  console.log(1000 - time - timediff);
   setTimeout(function(){
     audio.play();
-  }, 500 - time - timediff);
+  }, 1000 - time - timediff);
   // audio.play();
 });
 

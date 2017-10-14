@@ -38,6 +38,8 @@ Player.prototype = {
 
         },
         onend: function() {
+          
+
           self.skip('right');
         },
         onpause: function() {
