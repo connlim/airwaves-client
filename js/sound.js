@@ -26,7 +26,7 @@ Player.prototype = {
     } else {
       sound = currSong.howl = new Howl({
         src: [currSong.path],
-        html5: true, // Force to HTML5 so that the audio can stream in (best for large files).
+        html5: false, // Force HTML5 false so that the audio can stream in (best for large files).
         onplay: function() {
           // Display the duration.
           duration.text(self.formatTime(Math.round(sound.duration())));
