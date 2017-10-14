@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Airwaves</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -24,30 +24,14 @@
             <li><h5 id="left-nav-header">Devices</h5></li>
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
+                  <script id="devices-template" type="x-handlebars.template">
+                    {{#each devices}}
                     <li class="bold">
-                        <a class="collapsible-header waves-effect blue lighten-1 white-text">Device Name</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="badges.html" class="blue lighten-1 white-text">Device ID</a></li>
-                            </ul>
-                        </div>
+                        <a class="collapsible-header waves-effect blue lighten-1 white-text">{{this.name}}</a>
                     </li>
-                    <li class="bold">
-                        <a class="collapsible-header waves-effect blue lighten-1 white-text">Device Name</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="badges.html" class="blue lighten-1 white-text">Device ID</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="bold">
-                        <a class="collapsible-header waves-effect blue lighten-1 white-text">Device Name</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="badges.html" class="blue lighten-1 white-text">Device ID</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                    {{/each}}
+                    </script>
+                    <div class="devices"></div>
                 </ul>
             </li>
         </ul>
@@ -119,5 +103,6 @@
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/layout.js"></script>
+    <script type="text/javascript" src="js/devices-template.js"></script>
 </body>
 </html>
