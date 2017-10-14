@@ -3,6 +3,7 @@ var SOCKET_HOST = "172.22.152.16";
 var SOCKET_PORT = "10202";
 
 var timediff = 0;
+var sender = false;
 
 var options = {
   hostname: SOCKET_HOST,
@@ -22,11 +23,20 @@ $('#test-play').click(function(event){
   // var audio = new Audio('test.flac');
   // audio.play();
   socket.publish('play', timediff);
+  sender = true;
+  setTimeout(function(){
+    sender = false;
+    var audio = new Audio('test.flac');
+    audio.play();
+  }, 5000)
 });
 
 socket.subscribe('play').watch(function(time){
   setTimeout(function(){
-    var audio = new Audio('test.flac');
-    audio.play();
+    if(!sender){
+      var audio = new Audio('test.flac');
+      audio.play();
+    }
+
   }, 5000 - time - timediff);
 });
