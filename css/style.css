@@ -71,6 +71,11 @@ input[type=range][orient=vertical] {
     height: 50%;
 }
 
+#navbar-controls {
+    display: flex;
+    justify-content: center;
+}
+
 #navbar-current {
     display: flex;
     justify-content: center;
@@ -92,7 +97,7 @@ input[type=range][orient=vertical] {
 }
 
 .range-field {
-    width: 50vw;
+    width: 48vw;
 }
 
 .list-container {
