@@ -3,7 +3,10 @@ var SOCKET_HOST = "http://172.22.152.16";
 var SOCKET_PORT = "10202";
 
 var timediff = 0;
-var audio = new Audio('test.flac');
+var sound = new Howl({
+  src: ['audio/emotion.flac'],
+  html5: true // Force to HTML5 so that the audio can stream in (best for large files).
+});
 
 var options = {
   hostname: SOCKET_HOST,
@@ -25,10 +28,11 @@ $('#test-play').click(function(event){
 });
 
 socket.on('play', function(time){
+  console.log("fsdfsdf");
   console.log(1000 - time - timediff);
   setTimeout(function(){
-    audio.play();
-  }, 1000 - time - timediff);
+    sound.play();
+}, 1000 - time - timediff);
   // audio.play();
 });
 
