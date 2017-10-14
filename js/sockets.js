@@ -1,5 +1,5 @@
-//var SOCKET_HOST = "192.168.99.100";
-var SOCKET_HOST = "172.22.152.16";
+// var SOCKET_HOST = "192.168.99.100";
+var SOCKET_HOST = "http://172.22.152.16";
 var SOCKET_PORT = "10202";
 
 var timediff = 0;
@@ -30,8 +30,11 @@ var options = {
 //   audio.play();
 // });
 
-var socket = io();
-socket.emit('timeping', (new Date()).getTime());
+var socket = io(SOCKET_HOST + ':' + SOCKET_PORT);
+socket.on('connect', function(){
+  socket.emit('timeping', (new Date()).getTime());
+});
+
 socket.on('timepong', function(starttime){
   timediff = ((new Date()).getTime() - starttime) / 2;
   console.log(timediff);
