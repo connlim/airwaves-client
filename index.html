@@ -68,31 +68,18 @@
                         <th>Time</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="songs">
+                  <script id="songs-template" type="x-handlebars.template">
+                  {{#each songs}}
                     <tr>
-                        <td>Blah</td>
-                        <td>john</td>
-                        <td>my album</td>
-                        <td>3:00</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.artist}}</td>
+                        <td>{{this.album}}</td>
+                        <td>{{this.length}}</td>
                     </tr>
-                    <tr>
-                        <td>donut</td>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>3:76</td>
-                    </tr>
-                    <tr>
-                        <td>donut</td>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>3:76</td>
-                    </tr>
-                    <tr>
-                        <td>donut</td>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>3:76</td>
-                    </tr>
+                  {{/each}}
+                    </script>
+
                 </tbody>
             </table>
         </div>
@@ -104,5 +91,6 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/layout.js"></script>
     <script type="text/javascript" src="js/devices-template.js"></script>
+    <script type="text/javascript" src="js/songs-template.js"></script>
 </body>
 </html>
