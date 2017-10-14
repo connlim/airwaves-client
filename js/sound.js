@@ -49,8 +49,6 @@ Player.prototype = {
     // Begin playing the sound.
     sound.play();
 
-    // TODO: Update the currently playing track
-
     // Show the pause button.
     // if (sound.state() === 'loaded') {
     playBtn.hide();
