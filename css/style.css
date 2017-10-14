@@ -64,3 +64,12 @@ input[type=range][orient=vertical] {
 .range-field {
     width: 50vw;
 }
+
+.list-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+table.highlight>tbody>tr:hover {
+    background-color: #CCCCCC;
+}
