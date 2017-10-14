@@ -24,19 +24,25 @@ $('#test-play').click(function(event){
   // audio.play();
   socket.publish('play', timediff);
   sender = true;
-  setTimeout(function(){
-    sender = false;
-    var audio = new Audio('test.flac');
-    audio.play();
-  }, 5000)
+  // setTimeout(function(){
+  //   sender = false;
+  //   var audio = new Audio('test.flac');
+  //   audio.play();
+  // }, 5000)
 });
 
 socket.subscribe('play').watch(function(time){
-  setTimeout(function(){
-    if(!sender){
+  console.log(5000 - time - timediff);
+  if(!sender){
+    setTimeout(function(){
       var audio = new Audio('test.flac');
       audio.play();
-    }
+    }, 5000 - time - timediff);
+  }else{
+    setTimeout(function(){
+      var audio = new Audio('test.flac');
+      audio.play();
+    }, 5000 - timediff - timediff);
+  }
 
-  }, 5000 - time - timediff);
 });
