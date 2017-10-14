@@ -212,8 +212,6 @@ Player.prototype = {
         var data = {song: song};
         var compiledhtml = compiled(data);
         $('.playlist').append(compiledhtml);
-        data.group = $('#group-id').html();
-        socket.emit('new_song', data);
         $('.playlist').children().last().click(function(e) {
             console.log($(this).index());
             socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});
@@ -253,7 +251,7 @@ $('.song').click(function(e) {
     var path = $(this).children('.song-path').text();
     var length = $(this).children('.song-length').text();
     var hash = $(this).children('.song-hash').text();
-    player.addSong({
+    var song = {
         title: title,
         artist: artist,
         album: album,
@@ -261,7 +259,11 @@ $('.song').click(function(e) {
         length: length,
         hash: hash,
         howl: null
-    });
+    };
+    player.addSong(song);
+
+    // data.group = $('#group-id').html();
+    socket.emit('new_song', {group : $('#group-id').html(), song : song});
 });
 $('.playlist-song').click(function(e) {
     player.removeSong($(this).index());
