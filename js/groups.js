@@ -9,6 +9,7 @@ $('#join-group').submit(function(event){
       //TODO: Get current song
       Materialize.toast("Group joined!", 2500);
       $('#group-id').html(groupid);
+      
     }else{
       Materialize.toast("Group " + groupid + " does not exist!", 2500);
     }
