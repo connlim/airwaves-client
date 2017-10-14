@@ -212,8 +212,11 @@ Player.prototype = {
         var data = {song: song};
         var compiledhtml = compiled(data);
         $('.playlist').append(compiledhtml);
+        data.group = $('#group-id').html();
+        socket.emit('new_song', data);
         $('.playlist').children().last().click(function(e) {
             console.log($(this).index());
+            socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});
             player.removeSong($(this).index());
             $(this).remove();
         });
@@ -297,4 +300,23 @@ socket.on('play', function(time){
     player.play();
 }, 1000 - time - timediff);
   // audio.play();
+});
+
+socket.on('new_song', function(song){
+  player.addSong(song);
+  //TODO: Song syncing
+  var exists = false;
+  player.playlist.forEach(function(s){
+    if(s.hash == song.hash){
+      exists = true;
+      break;
+    }
+  });
+  if(!exists){
+    //Download song
+  }
+});
+
+socket.on('remove_song', function(index){
+  player.removeSong(index);
 });
