@@ -23,7 +23,7 @@ socket.on('connect', function(){
 
 socket.emit('timeping', (new Date()).getTime());
 socket.on('timepong', function(starttime){
-  timediff = ((new Date()).getTime() - starttime);
+  timediff = ((new Date()).getTime() - starttime) / 2;
   console.log(timediff);
 });
 
