@@ -32,17 +32,18 @@ $('#test-play').click(function(event){
 });
 
 socket.subscribe('play').watch(function(time){
-  console.log(5000 - time - timediff);
-  if(!sender){
-    setTimeout(function(){
+  console.log(5000 - timediff - timediff);
+  // if(!sender){
+  //   setTimeout(function(){
+  //     var audio = new Audio('test.flac');
+  //     audio.play();
+  //   }, 5000 - time - timediff);
+  // }else{
+  //   setTimeout(function(){
+  //     var audio = new Audio('test.flac');
+  //     audio.play();
+  //   }, 5000 - timediff - timediff);
+  // }
       var audio = new Audio('test.flac');
       audio.play();
-    }, 5000 - time - timediff);
-  }else{
-    setTimeout(function(){
-      var audio = new Audio('test.flac');
-      audio.play();
-    }, 5000 - timediff - timediff);
-  }
-
 });
