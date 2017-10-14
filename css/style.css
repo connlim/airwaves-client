@@ -16,8 +16,10 @@ header, main, footer {
 }
 
 #logo-container {
-    height: 57px;
-    margin-bottom: 32px;
+    height: auto;
+    text-align: center;
+    padding-bottom: 16px;
+    padding-top: 32px;
 }
 
 #left-nav-header {
@@ -27,10 +29,14 @@ header, main, footer {
     padding-bottom: 5px;
 }
 
-ul.side-nav.fixed li.logo {
-    text-align: center;
-    margin-top: 32px;
-    margin-bottom: 30px;
+#group-join-container {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 0px;
+}
+
+#group-join-container>input {
+    border-bottom: 1px solid white;
 }
 
 ul.side-nav.fixed ul.collapsible-accordion a.collapsible-header {
