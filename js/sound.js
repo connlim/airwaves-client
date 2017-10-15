@@ -328,7 +328,7 @@ socket.on('new_song', function(song){
   player.addSong(song);
   //TODO: Song syncing
   var exists = false;
-  player.playlist.forEach(function(s){
+  allSongs.forEach(function(s){
     if(s.hash == song.hash){
       exists = true;
     }
