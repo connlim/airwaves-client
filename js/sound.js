@@ -3,6 +3,26 @@ elms.forEach(function(elm) {
   window[elm] = $('#' + elm);
 });
 
+var allSongs = new Array();
+
+$('.song').each(function() {
+    var title = $(this).children('.song-title').text();
+    var artist = $(this).children('.song-artist').text();
+    var album = $(this).children('.song-album').text();
+    var path = $(this).children('.song-path').text();
+    var length = $(this).children('.song-length').text();
+    var hash = $(this).children('.song-hash').text();
+    var song = {
+        title: title,
+        artist: artist,
+        album: album,
+        path: path,
+        length: length,
+        hash: hash
+    };
+    allSongs.push(song);
+});
+
 var Player = function() {
   this.playlist = new Array();
   this.index = 0;
@@ -245,7 +265,7 @@ seeker.click(function(e) {
     player.seek(clickedValue / seeker.attr('max'));
 });
 $('.song').click(function(e) {
-    var title = $(this).children('.song-title').first().text();
+    var title = $(this).children('.song-title').text();
     var artist = $(this).children('.song-artist').text();
     var album = $(this).children('.song-album').text();
     var path = $(this).children('.song-path').text();
