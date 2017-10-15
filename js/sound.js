@@ -187,6 +187,30 @@ Player.prototype = {
   addSong: function(song) {
       var self = this;
 
+      var exists = false;
+      allSongs.forEach(function(s){
+        if(s.hash == song.hash){
+          exists = true;
+        }
+      });
+      if(!exists){
+        //console.log('stuff');
+        var url = SYNC_URL + '/' + $('#group-id').html() + '/song/' + song.hash;
+        // var download = electron.remote.require('electron-dl');
+        //console.log(electron);
+        electron.remote.require("electron-dl").download(electron.remote.getCurrentWindow(), url)
+            //.then(dl => console.log(dl.getSavePath()))
+            .then(function(dl){
+              console.log('success');
+              console.log(dl.getSavePath());
+            })
+            //.catch(console.error);
+            .catch(function(data){
+              console.log('error');
+              console.error(data);
+            });
+      }
+
       self.playlist.push(song);
       self.updatePlaylist(song);
   },
@@ -286,6 +310,16 @@ $('.song').click(function(e) {
     player.addSong(song);
 
     // data.group = $('#group-id').html();
+    $.ajax({
+      url : SYNC_URL + '/' + $('#group-id').html() + '/exists/' + song.hash,
+      contentType : false,
+      type : 'GET'
+    }).then(function(res){
+      console.log('exists');
+    }).fail(function(res){
+      electron.remote.require('./index').uploadFile(song.path);
+    });
+
     socket.emit('new_song', {group : $('#group-id').html(), song : song});
 });
 $('.playlist-song').click(function(e) {
@@ -331,19 +365,6 @@ socket.on('play', function(time){
 socket.on('new_song', function(song){
   player.addSong(song);
   //TODO: Song syncing
-  var exists = false;
-  allSongs.forEach(function(s){
-    if(s.hash == song.hash){
-      exists = true;
-    }
-  });
-  if(!exists){
-    var url = SYNC_PORT + '/' + $('#group-id').html() + '/song/' + song.hash;
-    var download = electron.remote.require('electron-dl');
-    download(electron.remote.getCurrentWindow(), url)
-        .then(dl => console.log(dl.getSavePath()))
-        .catch(console.error);
-  }
 });
 
 socket.on('remove_song', function(index){

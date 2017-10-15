@@ -5,6 +5,7 @@ var mm = require('musicmetadata');
 var Promise = require('promise');
 var handlebars = require('handlebars');
 var hashFiles = require('hash-files');
+var request = require('request');
 const path = require('path');
 
 const app = electron.app;
@@ -16,6 +17,8 @@ var music = new Array();
 // Prevent window being garbage collected
 let mainWindow;
 
+require("electron-dl")();
+let win;
 
 function onClosed() {
     // Dereference the window
@@ -82,7 +85,7 @@ function loadWindow() {
         var html = template(data);
         fs.writeFileSync('temp-index.html', html);
 
-        const win = new electron.BrowserWindow({
+         win = new electron.BrowserWindow({
             width: 1200,
             height: 600,
             'accept-first-mouse': true,
@@ -104,6 +107,19 @@ function loadWindow() {
 
 }
 
+var SYNC_URL = "http://172.22.152.16:10201";
+function uploadFile(filepath){
+  var req = request.post(SYNC_URL + '/song', function(err, res, body){
+    if(err){
+      console.log(err)
+    }else{
+      console.log('success');
+    }
+  });
+  var form = req.form();
+  form.append('file', fs.createReadStream(filepath));
+}
+exports.uploadFile = uploadFile;
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
