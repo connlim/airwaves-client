@@ -340,6 +340,7 @@ $('.playlist-song').click(function(e) {
 var SOCKET_HOST = "http://172.22.152.16";
 var SOCKET_PORT = "10202";
 var SYNC_URL = "http://172.22.152.16:10201";
+// var SYNC_URL = "http://192.168.99.100:10201";
 
 var timediff = 0;
 // var sound = new Howl({
