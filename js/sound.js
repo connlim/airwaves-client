@@ -288,7 +288,8 @@ prevBtn.click(function() {
   player.skip('prev');
 });
 nextBtn.click(function() {
-  player.skip('next');
+  // player.skip('next');
+  socket.emit('next', {group : $('#group-id').html(), time : timediff});
 });
 seeker.click(function(e) {
     var x = e.offsetX;
@@ -376,4 +377,11 @@ socket.on('new_song', function(song){
 
 socket.on('remove_song', function(index){
   player.removeSong(index);
+});
+
+socket.on('next', function(time) {
+    console.log(1000 - time - timediff);
+    setTimeout(function(){
+      player.skip('next');
+  }, 1000 - time - timediff)skip
 });
