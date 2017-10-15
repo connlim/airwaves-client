@@ -234,7 +234,7 @@ Player.prototype = {
         $('.playlist').append(compiledhtml);
         $('.playlist').children().last().click(function(e) {
             console.log($(this).index());
-            socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});
+
             player.removeSong($(this).index());
             $(this).remove();
         });
@@ -286,6 +286,7 @@ $('.song').click(function(e) {
     socket.emit('new_song', {group : $('#group-id').html(), song : song});
 });
 $('.playlist-song').click(function(e) {
+    socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});
     player.removeSong($(this).index());
     $(this).remove();
 });
@@ -316,7 +317,6 @@ socket.on('timepong', function(starttime){
 // });
 
 socket.on('play', function(time){
-  // console.log("fsdfsdf");
   console.log(1000 - time - timediff);
   setTimeout(function(){
     player.play();
@@ -328,7 +328,7 @@ socket.on('new_song', function(song){
   player.addSong(song);
   //TODO: Song syncing
   var exists = false;
-  player.playlist.forEach(function(s){
+  allSongs.playlist.forEach(function(s){
     if(s.hash == song.hash){
       exists = true;
     }
