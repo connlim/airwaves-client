@@ -285,10 +285,10 @@ $('.song').click(function(e) {
     // data.group = $('#group-id').html();
     socket.emit('new_song', {group : $('#group-id').html(), song : song});
 });
-$('.playlist-song').click(function(e) {
-    player.removeSong($(this).index());
-    $(this).remove();
-});
+// $('.playlist-song').click(function(e) {
+//     player.removeSong($(this).index());
+//     $(this).remove();
+// });
 
 
 // var SOCKET_HOST = "192.168.99.100";
