@@ -236,7 +236,7 @@ Player.prototype = {
         $('.playlist').append(compiledhtml);
         $('.playlist').children().last().click(function(e) {
             console.log($(this).index());
-            socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});
+
             player.removeSong($(this).index());
             $(this).remove();
         });
@@ -287,10 +287,11 @@ $('.song').click(function(e) {
     // data.group = $('#group-id').html();
     socket.emit('new_song', {group : $('#group-id').html(), song : song});
 });
-// $('.playlist-song').click(function(e) {
-//     player.removeSong($(this).index());
-//     $(this).remove();
-// });
+$('.playlist-song').click(function(e) {
+    socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});
+    player.removeSong($(this).index());
+    $(this).remove();
+});
 
 
 // var SOCKET_HOST = "192.168.99.100";
@@ -318,7 +319,6 @@ socket.on('timepong', function(starttime){
 // });
 
 socket.on('play', function(time){
-  // console.log("fsdfsdf");
   console.log(1000 - time - timediff);
   setTimeout(function(){
     player.play();
@@ -330,7 +330,11 @@ socket.on('new_song', function(song){
   player.addSong(song);
   //TODO: Song syncing
   var exists = false;
+<<<<<<< HEAD
+  allSongs.playlist.forEach(function(s){
+=======
   allSongs.forEach(function(s){
+>>>>>>> 5b5e6ec2d5a8534c46ecaad9693920a6fa81f949
     if(s.hash == song.hash){
       exists = true;
     }

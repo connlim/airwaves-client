@@ -10,6 +10,11 @@ $('#join-group').submit(function(event){
       Materialize.toast("Group joined!", 2500);
       $('#group-id').html(groupid);
       socket.emit('joingroup', groupid);
+      $.get(SYNC_URL + '/' + groupid + '/playlist', function(playlist){
+        playlist.forEach(function(song){
+          player.addSong(song);
+        });
+      });
     }else{
       Materialize.toast("Group " + groupid + " does not exist!", 2500);
     }
