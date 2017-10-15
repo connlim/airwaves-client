@@ -108,6 +108,7 @@ function loadWindow() {
 }
 
 var SYNC_URL = "http://172.22.152.16:10201/";
+// var SYNC_URL = "http://192.168.99.100:10201";
 function uploadFile(filepath, group, cb){
   var formData = {
     file : fs.createReadStream(filepath)
