@@ -199,10 +199,9 @@ Player.prototype = {
         // var download = electron.remote.require('electron-dl');
         //console.log(electron);
         console.log(url);
-        electron.remote.require('./index').downloadFile(url, song.hash, function(){
-          song.path = electron.remote.require('path').join(__dirname, './audio/' + song.hash + '.mp3');
-          console.log(song.path);
-        });
+        electron.remote.require('./index').downloadFile(url, song.hash);
+        song.path = electron.remote.require('path').join(__dirname, './audio/' + song.hash + '.mp3');
+        console.log(song.path);
         // electron.remote.require("electron-dl").download(electron.remote.getCurrentWindow(), url, {directory: './audio', openFolderWhenDone: true})
         //     //.then(dl => console.log(dl.getSavePath()))
         //     .then(function(dl){
@@ -321,12 +320,14 @@ $('.song').click(function(e) {
       contentType : false,
       type : 'GET'
     }).then(function(res){
-      console.log('exists');
+      socket.emit('new_song', {group : $('#group-id').html(), song : song});
     }).fail(function(res){
-      electron.remote.require('./index').uploadFile(song.path, $('#group-id').html());
+      electron.remote.require('./index').uploadFile(song.path, $('#group-id').html(), function(){
+        socket.emit('new_song', {group : $('#group-id').html(), song : song});
+      });
     });
 
-    socket.emit('new_song', {group : $('#group-id').html(), song : song});
+
 });
 $('.playlist-song').click(function(e) {
     socket.emit('remove_song', {group : $('#group-id').html(), index : $(this).index()});

@@ -108,7 +108,7 @@ function loadWindow() {
 }
 
 var SYNC_URL = "http://172.22.152.16:10201/";
-function uploadFile(filepath, group){
+function uploadFile(filepath, group, cb){
   var formData = {
     file : fs.createReadStream(filepath)
   };
@@ -118,14 +118,17 @@ function uploadFile(filepath, group){
     }else{
       console.log('success: ' + body);
     }
+    cb();
   });
   // var form = req.form();
   // form.append('file', fs.createReadStream(filepath));
 }
 exports.uploadFile = uploadFile;
 
-function downloadFile(url, hash, cb){
-  request.get(url).pipe(fs.createWriteStream('./audio/' + hash + '.mp3').on('finish', cb));
+function downloadFile(url, hash){
+  console.log('stuff');
+  console.log(url);
+  request.get(url).pipe(fs.createWriteStream('./audio/' + hash + '.mp3'));
 }
 exports.downloadFile = downloadFile;
 
