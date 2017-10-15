@@ -20,6 +20,7 @@
   "dependencies": {
     "electron": "^1.7.9",
     "electron-debug": "^1.0.0",
+    "electron-dl": "^1.10.0",
     "hammerjs": "^2.0.8",
     "handlebars": "^4.0.10",
     "hash-files": "^1.1.1",

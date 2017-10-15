@@ -86,10 +86,13 @@ function loadWindow() {
             width: 1200,
             height: 600,
             'accept-first-mouse': true,
-            icon: path.join(__dirname, 'icons/icon64x64.png')
+            icon: path.join(__dirname, 'icons/icon64x64.png'),
+            webPreferences: {
+                nodeIntegration: true
+            }
         });
 
-        win.setMenu(null);
+        //win.setMenu(null);
         win.loadURL(`file://${__dirname}/temp-index.html`);
         win.webContents.on('did-finish-load', () => {
             win.show();

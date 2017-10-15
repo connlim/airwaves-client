@@ -1,3 +1,5 @@
+var electron = require('electron');
+
 var elms = ['playBtn', 'pauseBtn', 'nextBtn', 'prevBtn', 'timer', 'duration', 'seeker', 'currentSong', 'currentArtist', 'currentAlbum'];
 elms.forEach(function(elm) {
   window[elm] = $('#' + elm);
@@ -334,7 +336,11 @@ socket.on('new_song', function(song){
     }
   });
   if(!exists){
-    //Download song
+    var url = SOCKET_HOST + ':' + SOCKET_PORT + '/:' + $('#group-id').html() + '/song/:' + song.hash;
+    var download = electron.remote.require('electron-dl');
+    download(electron.remote.getCurrentWindow(), url)
+        .then(dl => console.log(dl.getSavePath()))
+        .catch(console.error);
   }
 });
 
