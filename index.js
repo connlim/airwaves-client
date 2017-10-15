@@ -110,7 +110,7 @@ function loadWindow() {
 var SYNC_URL = "http://172.22.152.16:10201/";
 function uploadFile(filepath, group){
   var formData = {
-    file : fs.createReadStream(filepath);
+    file : fs.createReadStream(filepath)
   };
   request.post({url : SYNC_URL + group + '/song', formData : formData}, function(err, res, body){
     if(err){
