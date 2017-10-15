@@ -30,7 +30,8 @@ var Player = function() {
   this.index = 0;
 };
 Player.prototype = {
-  play: function() {
+  playingSound : null,
+  preplay : function(){
     var self = this;
     var sound;
     var currSong = self.playlist[self.index];
@@ -44,11 +45,11 @@ Player.prototype = {
     // If we already loaded this track, use the current one.
     // Otherwise, setup and load a new Howl.
     if (currSong.howl) {
-      sound = currSong.howl;
+      playingSound = currSong.howl;
     } else {
-      sound = currSong.howl = new Howl({
+      playingSound = currSong.howl = new Howl({
         src: [currSong.path],
-        html5: false, // Force HTML5 false so that the audio can stream in (best for large files).
+        html5: true, // Force HTML5 false so that the audio can stream in (best for large files).
         onplay: function() {
           // Display the duration.
           duration.text(self.formatTime(Math.round(sound.duration())));
@@ -70,9 +71,13 @@ Player.prototype = {
         }
       });
     }
+  },
+  play: function() {
+    var self = this;
+
 
     // Begin playing the sound.
-    sound.play();
+    this.playingSound.play();
 
     // Show the pause button.
     // if (sound.state() === 'loaded') {
@@ -218,6 +223,7 @@ Player.prototype = {
 
       self.playlist.push(song);
       self.updatePlaylist(song);
+      if(self.playlist.length == 1) self.preplay();
   },
 
   removeSong: function(index) {
@@ -383,5 +389,5 @@ socket.on('next', function(time) {
     console.log(1000 - time - timediff);
     setTimeout(function(){
       player.skip('next');
-  }, 1000 - time - timediff)skip
+  }, 1000 - time - timediff);
 });
