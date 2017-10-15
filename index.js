@@ -124,6 +124,11 @@ function uploadFile(filepath, group){
 }
 exports.uploadFile = uploadFile;
 
+function downloadFile(url, hash, cb){
+  request.get(url).pipe(fs.createWriteStream('./audio/' + hash + '.mp3').on('finish', cb));
+}
+exports.downloadFile = downloadFile;
+
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();

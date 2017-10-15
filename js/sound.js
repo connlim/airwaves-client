@@ -198,18 +198,23 @@ Player.prototype = {
         var url = SYNC_URL + '/' + $('#group-id').html() + '/song/' + song.hash;
         // var download = electron.remote.require('electron-dl');
         //console.log(electron);
-        electron.remote.require("electron-dl").download(electron.remote.getCurrentWindow(), url, {directory: './audio', openFolderWhenDone: true})
-            //.then(dl => console.log(dl.getSavePath()))
-            .then(function(dl){
-              console.log('success downloading');
-              song.path = dl.getSavePath();
-              console.log(dl.getSavePath());
-            })
-            //.catch(console.error);
-            .catch(function(data){
-              console.log('error');
-              console.error(data);
-            });
+        console.log(url);
+        electron.remote.require('./index').downloadFile(url, song.hash, function(){
+          song.path = electron.remote.require('path').join(__dirname, './audio/' + song.hash + '.mp3');
+          console.log(song.path);
+        });
+        // electron.remote.require("electron-dl").download(electron.remote.getCurrentWindow(), url, {directory: './audio', openFolderWhenDone: true})
+        //     //.then(dl => console.log(dl.getSavePath()))
+        //     .then(function(dl){
+        //       console.log('success downloading');
+        //       song.path = dl.getSavePath();
+        //       console.log(dl.getSavePath());
+        //     })
+        //     //.catch(console.error);
+        //     .catch(function(data){
+        //       console.log('error');
+        //       console.error(data);
+        //     });
       }
 
       self.playlist.push(song);
