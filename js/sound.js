@@ -198,10 +198,11 @@ Player.prototype = {
         var url = SYNC_URL + '/' + $('#group-id').html() + '/song/' + song.hash;
         // var download = electron.remote.require('electron-dl');
         //console.log(electron);
-        electron.remote.require("electron-dl").download(electron.remote.getCurrentWindow(), url)
+        electron.remote.require("electron-dl").download(electron.remote.getCurrentWindow(), url, {directory: './audio', openFolderWhenDone: true})
             //.then(dl => console.log(dl.getSavePath()))
             .then(function(dl){
-              console.log('success');
+              console.log('success downloading');
+              song.path = dl.getSavePath();
               console.log(dl.getSavePath());
             })
             //.catch(console.error);
