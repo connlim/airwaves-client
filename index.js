@@ -108,8 +108,8 @@ function loadWindow() {
 }
 
 var SYNC_URL = "http://172.22.152.16:10201";
-function uploadFile(filepath){
-  var req = request.post(SYNC_URL + '/song', function(err, res, body){
+function uploadFile(filepath, group){
+  var req = request.post(SYNC_URL + group + '/song', function(err, res, body){
     if(err){
       console.log(err)
     }else{

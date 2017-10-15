@@ -317,7 +317,7 @@ $('.song').click(function(e) {
     }).then(function(res){
       console.log('exists');
     }).fail(function(res){
-      electron.remote.require('./index').uploadFile(song.path);
+      electron.remote.require('./index').uploadFile(song.path, $('#group-id').html());
     });
 
     socket.emit('new_song', {group : $('#group-id').html(), song : song});
