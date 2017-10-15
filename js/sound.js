@@ -383,5 +383,5 @@ socket.on('next', function(time) {
     console.log(1000 - time - timediff);
     setTimeout(function(){
       player.skip('next');
-  }, 1000 - time - timediff)skip
+  }, 1000 - time - timediff)
 });
