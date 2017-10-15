@@ -1,5 +1,3 @@
-var SYNC_URL = "http://172.22.152.16:10201";
-
 $('#join-group').submit(function(event){
   event.preventDefault();
   var groupid = $('#group-join-id').val();

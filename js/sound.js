@@ -298,6 +298,7 @@ $('.playlist-song').click(function(e) {
 // var SOCKET_HOST = "192.168.99.100";
 var SOCKET_HOST = "http://172.22.152.16";
 var SOCKET_PORT = "10202";
+var SYNC_URL = "http://172.22.152.16:10201";
 
 var timediff = 0;
 // var sound = new Howl({
@@ -337,7 +338,7 @@ socket.on('new_song', function(song){
     }
   });
   if(!exists){
-    var url = SOCKET_HOST + ':' + SOCKET_PORT + '/:' + $('#group-id').html() + '/song/:' + song.hash;
+    var url = SYNC_PORT + '/' + $('#group-id').html() + '/song/' + song.hash;
     var download = electron.remote.require('electron-dl');
     download(electron.remote.getCurrentWindow(), url)
         .then(dl => console.log(dl.getSavePath()))
