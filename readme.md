@@ -1,6 +1,6 @@
 # app
 
-> Web client for airwaves, a software to sync music across multiple devices to allow for a distributed speaker network. Able to sync both the playing and the audio files.
+> Electron app for airwaves, a software to sync music across multiple devices to allow for a distributed speaker network. Able to sync both the playing and the audio files.
 
 
 ## Dev
