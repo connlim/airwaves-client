@@ -1,6 +1,6 @@
-# app [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+# app
 
-> My superb app
+> Web client for airwaves, a software to sync music across multiple devices to allow for a distributed speaker network. Able to sync both the playing and the audio files.
 
 
 ## Dev
@@ -22,8 +22,3 @@ $ npm run build
 ```
 
 Builds the app for macOS, Linux, and Windows, using [electron-packager](https://github.com/electron-userland/electron-packager).
-
-
-## License
-
-MIT © [<%= name %>](<%= website %>)
